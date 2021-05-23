@@ -1,0 +1,45 @@
+from flask import Flask,render_template,url_for,request
+import pandas as pd 
+import pickle
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.externals import joblib
+
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+	return render_template('home.html')
+
+@app.route('/predict',methods=['POST'])
+def predict():
+	df = pd.read_csv('https://res.cloudinary.com/olena/raw/upload/v1621734607/csv/sentiment_2.csv')
+
+	from sklearn.feature_extraction.text import TfidfVectorizer#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
+	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stop)
+	y = df['sentiment']
+	X = vectorizer.fit_transform(df['text'])
+
+	# Features and Labels
+	df['label'] = df['class'].map({'ham': 0, 'spam': 1})
+	X = df['message']
+	y = df['label']
+	from sklearn.model_selection import train_test_split
+	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
+
+	from sklearn.naive_bayes import MultinomialNB
+	from sklearn.naive_bayes import MultinomialNB
+	clf = MultinomialNB()
+	clf.fit(X_train, y_train)
+	clf.score(X_test,y_test)
+
+	if request.method == 'POST':
+		message = request.form['text']
+		data = [message]
+		vect = vectorizer.transform(data).toarray()
+		my_prediction = clf.predict(vect)
+	return render_template('result.html',prediction = my_prediction)
+
+if __name__ == '__main__':
+	app.run(debug=True)
