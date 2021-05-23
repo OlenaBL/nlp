@@ -19,11 +19,7 @@ def predict():
 	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii')
 	y = df['sentiment']
 	X = vectorizer.fit_transform(df['text'])
-
-	# Features and Labels
-	df['label'] = df['class'].map({'ham': 0, 'spam': 1})
-	X = df['message']
-	y = df['label']
+	
 	from sklearn.model_selection import train_test_split
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 	
