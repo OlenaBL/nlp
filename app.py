@@ -16,7 +16,7 @@ def predict():
 	df = pd.read_csv('https://res.cloudinary.com/olena/raw/upload/v1621734607/csv/sentiment_2.csv')
 
 	from sklearn.feature_extraction.text import TfidfVectorizer#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
-	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stop)
+	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii')
 	y = df['sentiment']
 	X = vectorizer.fit_transform(df['text'])
 
@@ -26,8 +26,7 @@ def predict():
 	y = df['label']
 	from sklearn.model_selection import train_test_split
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
-
-	from sklearn.naive_bayes import MultinomialNB
+	
 	from sklearn.naive_bayes import MultinomialNB
 	clf = MultinomialNB()
 	clf.fit(X_train, y_train)
