@@ -1,31 +1,19 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Prediction Results</title>
 </head>
 <body>
-
-	<header>
-		<div class="container">
-		<div id="brandname">
-			ML App
-		</div>
-		<h2>Sentiment</h2>
-		
-	</div>
-	</header>
-	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
-	<div class="results"><h3>Prediction Result</h3>
-    {% if prediction == 1 %}
+<h2>It looks like the text you provided sounds quite</h2>
+<p style="font-size:44; text-align: center;"><b>Results for Comment</b></p>
+<div class="results"><h3>Prediction Result</h3>
+<!--	{% if prediction == 1 %}
     <h2 style="color:red;">Bad</h2>
     {% elif prediction == 0 %}
     <h2 style="color:blue;">Good</h2>
-    {% else %}
-    <h2 style="color:black;">{{prediction}}</h2>
-    {% endif %}
-
-	</div>
-
+    {% else %}-->
+<h2 style="color:black;">{{prediction}}</h2>
+    <!--{% endif %}-->
+</div>
 </body>
 </html>
