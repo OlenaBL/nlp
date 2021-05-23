@@ -11,7 +11,7 @@ app = Flask(__name__)
 def home():
 	return render_template('home.html')
 
-@app.route('/predict',methods=['POST'])
+@app.route('/',methods=['POST'])
 def predict():
 	df = pd.read_csv('https://res.cloudinary.com/olena/raw/upload/v1621734607/csv/sentiment_2.csv')
 
