@@ -16,15 +16,14 @@
 	</div>
 	</header>
 	<p style="color:blue;font-size:20;text-align: center;"><b>Results for Comment</b></p>
-	<div class="results">
-
-
-		
-	{% if prediction == 1%}
-	<h2 style="color:red;">Result</h2>
-	{% elif prediction == 0%}
-	<h2 style="color:blue;">Result 2</h2>
-	{% endif %}
+	<div class="results"><h3>Prediction Result</h3>
+    {% if prediction == 1 %}
+    <h2 style="color:red;">Bad</h2>
+    {% elif prediction == 0 %}
+    <h2 style="color:blue;">Good</h2>
+    {% else %}
+    <h2 style="color:black;">{{prediction}}</h2>
+    {% endif %}
 
 	</div>
 
