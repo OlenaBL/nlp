@@ -1,35 +1,51 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
-	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">-->
+	<title>My ML model</title>
+    <style>
+        h2 {
+            color:gray;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 10%;
+        }
+        .button {
+            color: gray;
+            cursor: pointer;
+            font-weight: bold;            
+            font-size: 3em;
+            height: 25%;
+            width: 50%;
+            background-color: whitesmoke;
+            display: block;
+            margin : 0 auto;
+        }
+        .button:hover {
+            color: whitesmoke;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 3em;
+            height: 25%;
+            width: 50%;
+            background-color: rgb(241, 175, 149);            
+            display: block;
+            margin : 0 auto;
+        }
+        #box {
+            display: block;
+            margin : 0 auto;
+        }
+        </style>
 </head>
 <body>
-
-	<header>
-		<div class="container">
-		<div id="brandname">
-			My model
-		</div>
-		<h2>Sentiment analysis</h2>
-		
-	</div>
-	</header>
-
-	<div class="ml-container">
-
-		<form action="{{ url_for('predict')}}" method="POST">
-		<p>Enter Your Message Here</p>
-		<input type="text" name="comment"/>
-		<textarea name="text" rows="4" cols="50"></textarea>
-		<br/>
-
-		<input type="submit" class="btn-info" value="predict">
-		
-	</form>
-		
-	</div>
+<h2>Here you can predict sentiment of your text, please enter it below. <br> It can be 1 or 2 sentences.</h2>
+<form action="{{ url_for('predict'}}" method="POST">
+<!--<input type="text" name="text"/>-->
+<textarea name="text" rows="10" cols="50" id="box"></textarea>
+<br/>
+<br>
+<input type="submit" class="button" value="Click here for prediction">
+</form>
+</div>
 </body>
 </html>
