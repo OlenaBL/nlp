@@ -13,38 +13,43 @@
             color: gray;
             cursor: pointer;
             font-weight: bold;            
-            font-size: 3em;
-            height: 25%;
-            width: 50%;
+            font-size: 2em;
+            height: auto;
+            width: auto;
             background-color: whitesmoke;
             display: block;
             margin : 0 auto;
+            border-radius: 1em;
+            padding: 20px;
         }
         .button:hover {
-            color: whitesmoke;
+            color:whitesmoke;
             cursor: pointer;
             font-weight: bold;
-            font-size: 3em;
-            height: 25%;
-            width: 50%;
-            background-color: rgb(241, 175, 149);            
+            font-size: 2em;
+            height: auto;
+            width: auto;
+            background-color: gray;            
             display: block;
             margin : 0 auto;
         }
         #box {
             display: block;
             margin : 0 auto;
+            height: 25%;
+            width: 30%;
+            border-radius: 1em;
         }
         </style>
 </head>
 <body>
 <h2>Here you can predict sentiment of your text, please enter it below. <br> It can be 1 or 2 sentences.</h2>
-<form action="{{ url_for('predict')}}" method="POST">
+<form action="{{ url_for('predict'}}" method="POST">
 <!--<input type="text" name="text"/>-->
 <textarea name="text" rows="10" cols="50" id="box"></textarea>
 <br/>
 <br>
-<input type="submit" class="button" value="Click here for prediction">
+<input type="submit" class="button" value="Prediction">
 </form>
 </div>
 </body>
