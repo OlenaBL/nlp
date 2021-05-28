@@ -34,19 +34,23 @@
             margin : 0 auto;
         }
         #box {
-            display: block;
-            margin : 0 auto;
-            height: 25%;
-            width: 30%;
+	    display: block;
+            margin: 0 auto;
+	    height: 200px;
+            width: auto;
             border-radius: 1em;
-        }
+	    font-family: fantasy;
+  	    font-size: 44px;
+	    color: gray;
+	    padding: 40px;
+	    }
         </style>
 </head>
 <body>
 <h2>Here you can predict sentiment of your text, please enter it below. <br> It can be 1 or 2 sentences.</h2>
 <form action="{{ url_for('predict')}}" method="POST">
 <!--<input type="text" name="text"/>-->
-<textarea name="text" rows="10" cols="50" id="box"></textarea>
+<textarea name="headline" rows="10" cols="50" id="box"></textarea>
 <br/>
 <br>
 <input type="submit" class="button" value="Prediction">
