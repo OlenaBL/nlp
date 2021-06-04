@@ -3,47 +3,17 @@
 <head>
 	<title>Prediction</title>
 	<style>
-        h3, h2 {
+        h3 {
             color:gray;
             font-size: 2em;
             text-align: center;
-        }
-	#try {
-            color: gray;
-            cursor: pointer;
-            font-weight: bold;            
-            font-size: 2em;
-            height: auto;
-            width: auto;
-            background-color: whitesmoke;
-            display: block;
-            margin : 0 auto;
-            border-radius: 1em;
-            padding: 20px;
-        }
-        #try:hover {
-            color:whitesmoke;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 2em;
-            height: auto;
-            width: auto;
-            background-color: gray;            
-            display: block;
-            margin : 0 auto;
+            padding-top: 10%;
         }
     </style>
 </head>
 <body>
-<!--<div class="results"><h3>It looks like your text is</h3>
-    <div class="results">
-        {% if prediction == 1%}
-        <h2>sarcastic</h2>
-        {% elif prediction == 0%}
-        <h2>not sarcastic</h2>
-        {% endif %}
-    </div>
-</div>-->
-	<input type="button" value="Try something else" id="try" onclick="window.location.href='https://sarcasmwithml.herokuapp.com'">
+<div class="results">
+	<h3>It looks like the text you provided sounds quite <br> {{prediction}}</h3>
+</div>
 </body>
 </html>
