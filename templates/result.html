@@ -35,12 +35,20 @@
     </style>
 </head>
 <body>
+	
+	<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
 <div class="results"><h3>It looks like your text is</h3>
     <div class="results">
-        {% if prediction == 1%}
-        <h2>sarcastic</h2>
-        {% elif prediction == 0%}
-        <h2>not sarcastic</h2>
+        {% if prediction == 'negative'%}
+        <h2>negative</h2>
+        {% elif prediction == 'positive'%}
+        <h2>positive</h2>
         {% endif %}
     </div>
 </div>
