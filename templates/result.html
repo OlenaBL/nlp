@@ -14,9 +14,9 @@
 <body>
 <div class="results">
 	<!---<h3>It looks like the text you provided sounds quite</h3>-->
-	{% if prediction == 1%}
+	{% if prediction == 'positive'%}
 	<h2 style="color:red;">Positive</h2>
-	{% elif prediction == 0%}
+	{% elif prediction == 'negative'%}
 	<h2 style="color:blue;">Negative</h2>
 	{% endif %}
 </div>
