@@ -3,22 +3,47 @@
 <head>
 	<title>Prediction</title>
 	<style>
-        h3 {
+        h3, h2 {
             color:gray;
             font-size: 2em;
             text-align: center;
-            padding-top: 10%;
+        }
+	#try {
+            color: gray;
+            cursor: pointer;
+            font-weight: bold;            
+            font-size: 2em;
+            height: auto;
+            width: auto;
+            background-color: whitesmoke;
+            display: block;
+            margin : 0 auto;
+            border-radius: 1em;
+            padding: 20px;
+        }
+        #try:hover {
+            color:whitesmoke;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 2em;
+            height: auto;
+            width: auto;
+            background-color: gray;            
+            display: block;
+            margin : 0 auto;
         }
     </style>
 </head>
 <body>
-<div class="results">
-	<!---<h3>It looks like the text you provided sounds quite</h3>-->
-	{% if prediction == 2%}
-	<h2 style="color:red;">Positive</h2>
-	{% elif prediction == 0%}
-	<h2 style="color:blue;">Negative</h2>
-	{% endif %}
+<div class="results"><h3>It looks like your text is</h3>
+    <div class="results">
+        {% if prediction == 2%}
+        <h2>positive</h2>
+        {% elif prediction == 0%}
+        <h2>negative</h2>
+        {% endif %}
+    </div>
 </div>
+	<input type="button" value="Try something else" id="try" onclick="window.location.href='https://olenaml1.herokuapp.com/'">
 </body>
 </html>
