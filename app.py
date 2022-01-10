@@ -19,7 +19,7 @@ def predict():
 	from sklearn.feature_extraction.text import TfidfVectorizer
 	
 	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii')
-	y = df['label']
+	y = df['sentiment']
 	X = vectorizer.fit_transform(df['text'])
 	
 	from sklearn.model_selection import train_test_split
