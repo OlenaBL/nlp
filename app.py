@@ -34,7 +34,7 @@ def predict():
 	if request.method == 'POST':
 		message = request.form['text']
 		data = [message]
-		vect = vectorizer.transform(data)
+		vect = vectorizer.transform(data).toarray()
 		my_prediction = clf.predict(vect)
 	return render_template('result.html',prediction = my_prediction)
 
