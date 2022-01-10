@@ -14,6 +14,7 @@ def home():
 @app.route('/',methods=['POST'])
 def predict():
 	df = pd.read_csv('https://res.cloudinary.com/olena/raw/upload/v1621734607/csv/sentiment_2.csv')
+	df['sentiment'] = df['sentiment'].replace({'positive':2, 'negative':0})
 	#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
 	#vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stop)
 	from sklearn.feature_extraction.text import TfidfVectorizer
