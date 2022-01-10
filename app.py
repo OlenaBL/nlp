@@ -17,7 +17,7 @@ def predict():
 
 	from sklearn.feature_extraction.text import TfidfVectorizer#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
 	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii')
-	y = df['sentiment']
+	y = df['label']
 	X = vectorizer.fit_transform(df['text'])
 	
 	from sklearn.model_selection import train_test_split
