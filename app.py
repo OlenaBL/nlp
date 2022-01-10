@@ -14,9 +14,10 @@ def home():
 @app.route('/',methods=['POST'])
 def predict():
 	df = pd.read_csv('https://res.cloudinary.com/olena/raw/upload/v1621734607/csv/sentiment_2.csv')
-	stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
+	#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
 	#vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stop)
-	from sklearn.feature_extraction.text import TfidfVectorizer#stop = set(stopwords.words('english')) - set(['not', 'no', 'nor', "don't", 'very', 'down', 'most', 'over', 'such'])
+	from sklearn.feature_extraction.text import TfidfVectorizer
+	
 	vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii')
 	y = df['label']
 	X = vectorizer.fit_transform(df['text'])
