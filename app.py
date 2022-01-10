@@ -27,10 +27,8 @@ def predict():
 	X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 	
 	from sklearn.naive_bayes import MultinomialNB
-	clf = naive_bayes.MultinomialNB()
+	clf = MultinomialNB()
 	clf.fit(X_train, y_train)
-	#clf = MultinomialNB()
-	#clf.fit(X_train, y_train)
 	#clf.score(X_test,y_test)
 
 	if request.method == 'POST':
