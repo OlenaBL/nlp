@@ -4,3 +4,4 @@ numpy
 gunicorn
 sklearn
 naive-bayes
+translate_v2
